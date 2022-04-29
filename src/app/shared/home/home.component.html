@@ -1,0 +1,10 @@
+
+<div class="text-center mt-5 container">
+    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+        <input type="radio" [routerLinkActive]="'active'" [routerLink]="['/cocktails']" class="btn-check" name="btnradio" id="cocktail" autocomplete="off" checked>
+        <label class="btn btn-outline-success" for="cocktail">Cocktail</label>
+      
+        <input type="radio" class="btn-check" [routerLinkActive]="'active'" [routerLink]="['/champagne']" name="btnradio" id="champagne" autocomplete="off">
+        <label class="btn btn-outline-success" for="champagne">Champagne</label>
+    </div>
+</div>
