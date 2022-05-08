@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { Drink } from 'src/app/models/cocktail.interface';
+import { Drink } from 'src/app/models/champagne.interface';
 import { CocktailServiceService } from 'src/app/services/cocktail-service.service';
 
 @Component({
@@ -30,7 +30,6 @@ export class CocktailsComponent implements OnInit {
     ).subscribe(
       {
         next: (cocktail) => {
-          console.log(cocktail);
           this.listCocktails = cocktail;
         },
         error: (err) => {

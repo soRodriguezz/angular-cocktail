@@ -1,1 +1,13 @@
-<p>champagne works!</p>
+<div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6">
+    <div class="col mb-4" *ngFor="let champagne of listChampagne">
+        <div class="card h-100 border-0">
+            <img
+                src="{{ champagne.strDrinkThumb }}"
+                alt="{{ champagne.strDrink }}"
+            />
+            <div class="card-body text-center">
+                <h5 class="card-title">{{ champagne.strDrink }}</h5>
+            </div>
+        </div>
+    </div>
+</div>

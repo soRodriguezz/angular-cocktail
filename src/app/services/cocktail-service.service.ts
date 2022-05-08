@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Champagne } from '../models/champagne.interface';
 import { Cocktail } from '../models/cocktail.interface';
 
 @Injectable({
@@ -17,8 +18,8 @@ export class CocktailServiceService {
     return this._http.get<Cocktail>(`${environment.URL_BASE}/filter.php?g=Cocktail_glass`);
   }
 
-  getChampagne() {
-    return this._http.get(`${environment.URL_BASE}/filter.php?g=Champagne_flute`);
+  getChampagne(): Observable<Champagne> {
+    return this._http.get<Champagne>(`${environment.URL_BASE}/filter.php?g=Champagne_flute`);
   }
 
 

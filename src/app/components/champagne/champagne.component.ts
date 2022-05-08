@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs';
+import { Drink } from 'src/app/models/champagne.interface';
+import { CocktailServiceService } from 'src/app/services/cocktail-service.service';
 
 @Component({
   selector: 'app-champagne',
@@ -7,9 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChampagneComponent implements OnInit {
 
-  constructor() { }
+  listChampagne: Drink[];
+
+  constructor(
+    private cocktailServiceService: CocktailServiceService
+  ) {
+    this.listChampagne = [];
+  }
 
   ngOnInit(): void {
+    this.getChampagne();
+  }
+
+  getChampagne(): void {
+    this.cocktailServiceService.getChampagne().pipe(
+      map(data => {
+        return data.drinks;
+      })
+    ).subscribe(
+      {
+        next: (champagne) => {
+          this.listChampagne = champagne;
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      }
+    );
   }
 
 }
